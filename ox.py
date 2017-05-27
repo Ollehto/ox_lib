@@ -27,7 +27,7 @@ class OXGame():
 		return self.__decide_win()
 
 	def __player_set(self, place):
-		if self.__board[place] == self.__player:
+		if self.__board[place] != 0:
 			raise Exception("Place already occupied")
 		self.__board[place] = self.__player
 		return self.__decide_win()
