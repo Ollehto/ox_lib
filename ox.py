@@ -15,18 +15,20 @@ class OXGame():
 	def __decide_win(self):
 		for p in (1, -1):
 			board = self.__board == p
-			if np.any(np.all(board, axis=1)) or np.any(np.all(board, axis=0)):
+			if np.any(np.all(board, axis=1)) or np.any(np.all(board, axis=0)):# tate yoko
 				return p
-			elif np.all(board[(0, 1, 2), (0, 1, 2)]) or np.all(board[(2, 1, 0), (0, 1, 2)]):
+			elif np.all(board[(0, 1, 2), (0, 1, 2)]) or np.all(board[(2, 1, 0), (0, 1, 2)]):# naname
 				return p
 		return 0
 
 	def __computer_set(self):
-		flatind = np.random.choice(np.where(self.__board.ravel() == 0)[0])# get indices of cells where no o/x is placed
+		flatind = np.random.choice(np.where(self.__board.ravel() == 0)[0])# randomly choose from indices of cells where no o/x is placed
 		self.__board.ravel()[flatind] = -1 * self.__player
 		return self.__decide_win()
 
 	def __player_set(self, place):
+		if self.__board[place] == self.__player:
+			raise Exception("Place already occupied")
 		self.__board[place] = self.__player
 		return self.__decide_win()
 
@@ -43,10 +45,6 @@ class OXGame():
 				return cp_win
 			win = self.__player_set(place)
 			return win
-
-class Agent:
-	def __init__(self):
-		pass
 
 if __name__ == '__main__':
 	ox = OXGame(board=np.array([[0, 1, 1], [0, 0, 0], [0, 0, 0]]))
