@@ -1,14 +1,12 @@
 from lib.rl import *
 
 if __name__ == "__main__":
-	#LEARN
-	print("learning")
+	print("learning")#LEARN
 	oxa = OXAgent()
 	values = oxa.play(loop=20000, alpha=0.7, epsilon=0.5, gamma=0.95)
 	oxa.finish_learning()
 
-	#PLAY
-	while True:
+	while True:#PLAY
 		print("now play")
 		win = 0
 		while win == 0:

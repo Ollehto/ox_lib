@@ -1,6 +1,6 @@
 import numpy as np
 from . import functions
-#import functions
+
 class OXGame:
 	def __init__(self, board=np.zeros((3, 3), dtype=np.int8), player_first=True, values=np.random.rand(3**9, 9)):
 		self.__board = board

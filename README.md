@@ -1,6 +1,6 @@
 # Reinforcement Learning TEST
 
-# USAGE
+## USAGE
 
 1. Clone this repository. `git clone https://github.com/Ollehto/ox_lib`
 
